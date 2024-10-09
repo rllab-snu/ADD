@@ -49,7 +49,7 @@ python datasets/bipedal.py
 python flat_train.py
 ```
 
-## Run experiments (BipedalWalker)
+## Run experiments
 Before running the following commands, you must check "log_dir" and "generator_model_path" in the json file first.
 
 ```

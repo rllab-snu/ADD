@@ -41,8 +41,13 @@ conda install cudatoolkit=11.8 -c pytorch -c nvidia
 cd diffusion_human_feedback
 
 # for Minigrid
-python datasets/minigrid.py
-python image_train.py
+MODEL_FLAGS="--image_size 16 --image_channels 3 --num_channels 128 --num_res_blocks 3"
+DIFFUSION_FLAGS="--diffusion_steps 1000 --noise_schedule linear"
+TRAIN_FLAGS="--lr 1e-4 --batch_size 256 --save_interval 100000"
+LOG_DIR="log/minigrid_60_uniform" # The diffusion model will be saved in .pt format within the directory specified by this path.
+NUM_GPUS="1" # The number of GPUs used in parallel computing. If larger than 1, adjust the batch_size argument accordingly.
+
+echo $(mpiexec -n $NUM_GPUS python image_train.py --log_dir=$LOG_DIR --data_dir=minigrid_60_uniform --rgb=True --random_flip=False $MODEL_FLAGS $DIFFUSION_FLAGS $TRAIN_FLAGS)
 
 # for BipedalWalker
 python datasets/bipedal.py

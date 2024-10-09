@@ -72,5 +72,3 @@ python -m eval \
 --benchmark <maze or bipedal> \
 --num_episodes <num_episodes> \
 ```
-
-# ADD

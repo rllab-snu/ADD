@@ -22,7 +22,7 @@
 	  "recurrent_hidden_size": [1],
 
       "use_generator": [true],
-	  "generator_model_path": ["diffusion_human_feedback/log/bipedal/model150000.pt"],
+	  "generator_model_path": ["diffusion_human_feedback/log/bipedal/ema_150000.pt"],
       "use_guidance": [true],
       "regret_metric": ["cvar-mean"],
       "regret_guidance_weight": [25.0],
